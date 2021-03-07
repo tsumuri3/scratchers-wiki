@@ -1,5 +1,46 @@
 <html>
 <font size=6>
 tsumuri3
-
+</font>
+  
+        <div class="underline"></div>
+      <script>
+      function getApi(url,code) {
+        let a = new XMLHttpRequest()
+        a.open('GET' , url)
+        a.responseType = 'json'
+        a.onload = function () {
+          code( this.response )
+        }
+        a.send()
+      }
+      getApi('https://scratchdb.lefty.one/v2/user/info/tsumuri3' , function ( a ) {
+      a = a['statistics']
+      a = '<h4 class="0s">星数</h4>'
+      + a['favorites'] + '個 日本 : ' + a['ranks']['country']['favorites'] + '位 世界 : ' + a['ranks']['favorites'] + '位'
+      + '<h4 class="0s">ハート数</h4>'
+      + a['loves'] + '個 日本 : ' + a['ranks']['country']['loves'] + '位 世界 : ' + a['ranks']['loves'] + '位'
+      + '<h4 class="0s">フォロワー数</h4>'
+      + a['followers'] + '個 日本 : ' + a['ranks']['country']['followers'] + '位 世界 : ' + a['ranks']['followers'] + '位'
+      + '<h4 class="0s">参照数</h4>'
+      + a['views'] + '個 日本 : ' + a['ranks']['country']['views'] + '位 世界 : ' + a['ranks']['views'] + '位'
+      + '<h4 class="0s">コメント数</h4>'
+      + a['comments'] + '個 日本 : ' + a['ranks']['country']['comments'] + '位 世界 : ' + a['ranks']['comments'] + '位'
+        document.getElementById('api').innerHTML = a
+      })
+          </script>
+<div id="api"><h4 class="0s">星数</h4>読み込み中
+     <h4 class="0s">ハート数</h4>読み込み中
+     <h4 class="0s">フォロワー数</h4>読み込み中
+     <h4 class="0s">参照数</h4>読み込み中
+     <h4 class="0s">コメント数</h4>読み込み</div>
+  </body>
+  <script src="main.js"></script>
+  <script>include( 'CC BY-SA 2.0' , 'by-sa/2.0' )</script>
+  
+  <br>
+データの使用にScratchDBを使用しています。
+  
+  
+  
 </html>
